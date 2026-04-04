@@ -1,0 +1,50 @@
+services:
+
+  # ── Whisper ASR HTTP server ───────────────────────────────────────────────────
+  # Using faster-whisper based image — works on Apple Silicon (aarch64) natively,
+  # no compilation needed, and exposes a compatible POST /inference endpoint.
+  whisper:
+    image: fedirz/faster-whisper-server:latest-cpu
+    container_name: subtitle_whisper
+    ports:
+      - "8080:8000"
+    volumes:
+      - whisper_models:/root/.cache/huggingface
+    environment:
+      - WHISPER__MODEL=${WHISPER_MODEL:-Systran/faster-whisper-medium}
+      - WHISPER__INFERENCE_DEVICE=cpu
+      - WHISPER__COMPUTE_TYPE=int8
+      - WHISPER__CPU_THREADS=10
+      - ALLOW_ORIGINS=["*"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 90s
+
+  # ── LibreTranslate ───────────────────────────────────────────────────────────
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    container_name: subtitle_translate
+    ports:
+      - "5050:5000"
+    volumes:
+      - libretranslate_models:/home/libretranslate/.local
+    environment:
+      - LT_LOAD_ONLY=${LT_LANGUAGES:-en,es,fr,de,it,pt,ja,ko,zh,ru,ar,hi,bn}
+      - LT_DISABLE_WEB_UI=false
+      - LT_API_KEYS=false
+      - LT_WORKERS=4
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:5000/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 120s
+
+volumes:
+  whisper_models:
+  libretranslate_models:
