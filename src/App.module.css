@@ -1,0 +1,15 @@
+.layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
+.outputPanel {
+  padding: 28px 32px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

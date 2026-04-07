@@ -1,0 +1,21 @@
+# Environment — never commit your config
+.env
+
+# Docker volumes (auto-generated)
+docker/volumes/
+
+# Node
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Mac
+.DS_Store
+
+# Generated icons (regenerate with scripts/generate-icons.py)
+# extension/icons/*.png

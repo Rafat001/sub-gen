@@ -1,0 +1,29 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  gap: 12px;
+  color: var(--muted);
+  text-align: center;
+  padding: 40px;
+}
+
+.icon {
+  font-size: 40px;
+  opacity: 0.4;
+}
+
+.title {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.sub {
+  font-size: 12px;
+  max-width: 280px;
+  line-height: 1.5;
+}

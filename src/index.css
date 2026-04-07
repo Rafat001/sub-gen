@@ -1,0 +1,65 @@
+:root {
+  --bg:       #0d0d0f;
+  --surface:  #16161a;
+  --border:   #2a2a30;
+  --accent:   #00e5a0;
+  --accent2:  #005f45;
+  --text:     #e8e8ec;
+  --muted:    #6b6b78;
+  --danger:   #ff4d6d;
+  --warn:     #ffd166;
+  --radius:   6px;
+  --mono:     'IBM Plex Mono', monospace;
+  --sans:     'IBM Plex Sans', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* Common form elements */
+select,
+input[type='text'],
+input[type='number'] {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  appearance: none;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+select:focus,
+input:focus {
+  border-color: var(--accent);
+}

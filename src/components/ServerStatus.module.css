@@ -1,0 +1,53 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.copy {
+  color: var(--muted);
+}
+
+.statuses {
+  display: flex;
+  gap: 20px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+
+.dot.online  { background: var(--accent); }
+.dot.offline { background: var(--danger); }
+.dot.loading {
+  background: var(--warn);
+  animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.statusText {
+  color: var(--text);
+}

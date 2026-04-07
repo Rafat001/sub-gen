@@ -1,0 +1,35 @@
+.box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  max-height: 180px;
+  overflow-y: auto;
+  line-height: 1.7;
+}
+
+.line {
+  display: flex;
+  gap: 10px;
+}
+
+.time {
+  color: var(--accent2);
+  flex-shrink: 0;
+}
+
+.msg {
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.line.err .msg {
+  color: var(--danger);
+}
+
+.line.ok .msg {
+  color: var(--accent);
+}
