@@ -1,0 +1,13 @@
+{
+  "packageManager": "npm",
+  "install": "npm install --legacy-peer-deps",
+  "services": [
+    {
+      "name": "web",
+      "command": "npm run dev",
+      "primary": true,
+      "port": null,
+      "portRegex": null
+    }
+  ]
+}

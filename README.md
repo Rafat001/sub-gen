@@ -84,3 +84,7 @@ docker compose up -d --force-recreate
 - **macOS only: port 5000 is taken by AirPlay Receiver.** LibreTranslate defaults to 5050 to avoid this.
 - **Translation quality varies.** Common pairs (any language → English) are good. Less common pairs may be rough.
 - **CPU is slow.** A 20-minute video takes ~8–12 minutes with the small model. This is normal — it's running AI inference locally.
+
+---
+
+authored by: Mohammed Islam
